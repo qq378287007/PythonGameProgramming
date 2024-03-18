@@ -1,5 +1,3 @@
-# Mad Lib Game
-
 print("MAD LIB GAME")
 print("Enter answers to the following prompts\n")
 

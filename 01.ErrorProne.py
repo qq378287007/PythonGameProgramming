@@ -6,7 +6,6 @@ def ErrorProne():
 #    print = 10
 #    print(print)
 
-
 print("See, nothing bad happened. You worry too much!")
 
 ErrorProne()

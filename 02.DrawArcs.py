@@ -1,11 +1,14 @@
-# Drawing Arcs
-# Python 3.2
-
 import math
 import sys
 
 import pygame
 from pygame.locals import *
+
+color = 255, 0, 255
+rect = 200, 150, 200, 200
+start_angle = math.radians(0)
+end_angle = math.radians(180)
+width = 8
 
 pygame.init()
 pygame.display.set_caption("Drawing Arcs")
@@ -20,11 +23,5 @@ while True:
     screen.fill((0, 0, 200))
 
     # draw the arc
-    color = 255, 0, 255
-    rect = 200, 150, 200, 200
-    start_angle = math.radians(0)
-    end_angle = math.radians(180)
-    width = 8
-
     pygame.draw.arc(screen, color, rect, start_angle, end_angle, width)
     pygame.display.update()

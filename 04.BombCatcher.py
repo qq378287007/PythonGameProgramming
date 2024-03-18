@@ -1,6 +1,3 @@
-# Bomb Catcher Game
-# Chapter 4
-
 import sys
 import random
 import pygame

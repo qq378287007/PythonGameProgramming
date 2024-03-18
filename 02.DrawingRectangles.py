@@ -1,20 +1,17 @@
-# Drawing Rectangles
-# Python 3.2
-
 import sys
 
 import pygame
 from pygame.locals import *
 
-pygame.init()
-pygame.display.set_caption("Drawing Rectangles")
-
-screen = pygame.display.set_mode((600, 500))
-
 pos_x = 300
 pos_y = 250
 vel_x = 2
 vel_y = 1
+
+pygame.init()
+pygame.display.set_caption("Drawing Rectangles")
+
+screen = pygame.display.set_mode((600, 500))
 
 while True:
     for event in pygame.event.get():

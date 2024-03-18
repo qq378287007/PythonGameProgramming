@@ -1,11 +1,7 @@
-# Mouse Demo
-# Chapter 4
-
 import sys
 
 import pygame
 from pygame.locals import *
-
 
 def print_text(font, x, y, text, color=(255, 255, 255)):
     imgText = font.render(text, True, color)

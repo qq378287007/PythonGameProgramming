@@ -1,11 +1,6 @@
-# Test Code
-
-import sys
-
-from datetime import datetime
-
 something = 123
 print(something)
+
 something = "ABC"
 print(something)
 
@@ -22,10 +17,10 @@ print(name, birth)
 print("String", "Theory", sep='-', end=':')
 print()
 
+import sys
 print(sys.copyright)
-
 print(sys.platform)
-
 print(sys.version)
 
+from datetime import datetime
 print(datetime.now())

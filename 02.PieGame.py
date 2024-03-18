@@ -1,17 +1,8 @@
-# The Pie Game
-# Python 3.2
-
 import math
 import sys
 
 import pygame
 from pygame.locals import *
-
-pygame.init()
-pygame.display.set_caption("The Pie Game - Press 1,2,3,4")
-
-screen = pygame.display.set_mode((600, 500))
-myfont = pygame.font.Font(None, 60)
 
 color = 200, 80, 60
 width = 4
@@ -24,6 +15,12 @@ piece1 = False
 piece2 = False
 piece3 = False
 piece4 = False
+
+pygame.init()
+pygame.display.set_caption("The Pie Game - Press 1,2,3,4")
+
+screen = pygame.display.set_mode((600, 500))
+myfont = pygame.font.Font(None, 60)
 
 while True:
     for event in pygame.event.get():
@@ -47,10 +44,13 @@ while True:
     # draw the four numbers
     textImg1 = myfont.render("1", True, color)
     screen.blit(textImg1, (x+radius/2-20, y-radius/2))
+    
     textImg2 = myfont.render("2", True, color)
     screen.blit(textImg2, (x-radius/2, y-radius/2))
+    
     textImg3 = myfont.render("3", True, color)
     screen.blit(textImg3, (x-radius/2, y+radius/2-20))
+    
     textImg4 = myfont.render("4", True, color)
     screen.blit(textImg4, (x+radius/2-20, y+radius/2-20))
 

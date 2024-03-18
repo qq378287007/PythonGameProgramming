@@ -1,6 +1,3 @@
-# Keyboard Demo
-# Chapter 4
-
 import sys
 import random
 import time

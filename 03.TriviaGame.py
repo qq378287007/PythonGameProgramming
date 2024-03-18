@@ -1,11 +1,7 @@
-# The Trivia Game
-# Chapter 3
-
 import sys
 
 import pygame
 from pygame.locals import *
-
 
 class Trivia(object):
     def __init__(self, filename):
@@ -86,14 +82,12 @@ class Trivia(object):
             if self.current >= self.total:
                 self.current = 0
 
-
 def print_text(font, x, y, text, color=(255, 255, 255), shadow=True):
     if shadow:
         imgText = font.render(text, True, (0, 0, 0))
         screen.blit(imgText, (x-2, y-2))
     imgText = font.render(text, True, color)
     screen.blit(imgText, (x, y))
-
 
 # main program begins
 pygame.init()
@@ -111,7 +105,7 @@ green = 0, 255, 0
 red = 255, 0, 0
 
 # load the trivia data file
-trivia = Trivia("trivia_data.txt")
+trivia = Trivia("03.trivia_data.txt")
 
 # repeating loop
 while True:

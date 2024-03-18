@@ -1,5 +1,0 @@
-Chapter 3
-Sample text data file
-This is the third line of text
-The fourth line looks like this
-Edit the file with any text editor

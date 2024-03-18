@@ -1,6 +1,7 @@
 # OOP Bug Demo
 
-class Bug(object):
+class Bug(object): 
+    name = ""
     legs = 0
     distance = 0
 
@@ -12,10 +13,10 @@ class Bug(object):
         self.distance += distance
 
     def GetDistance(self):
-        return distance
+        return self.distance
 
     def SetDistance(self, value):
-        distance = value
+        self.distance = value
 
     def ToString(self):
         return self.name + " has " + str(self.legs) + " legs" + \

@@ -1,6 +1,3 @@
-# The Pie Game, My First Pygame Game
-# Python 3.2
-
 import sys
 
 import pygame

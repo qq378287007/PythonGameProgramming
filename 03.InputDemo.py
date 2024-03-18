@@ -1,5 +1,3 @@
-# Getting Input
-
 s = input("Enter a number: ")
 try:
     number = float(s)

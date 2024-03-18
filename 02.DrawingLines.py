@@ -1,6 +1,3 @@
-# Drawing Lines
-# Python 3.2
-
 import sys
 
 import pygame

@@ -1,6 +1,3 @@
-# Tank Battle Game
-# Chapter 12
-
 import sys
 import random
 
@@ -18,15 +15,15 @@ class Bullet():
         self.velocity = Point(0, 0)
         self.rect = Rect(0, 0, 4, 4)
         self.owner = ""
-
-    def update(self, ticks):
+    
+    def update(self):
         self.position.x += self.velocity.x * 10.0
         self.position.y += self.velocity.y * 10.0
         if self.position.x < 0 or self.position.x > 800 \
                 or self.position.y < 0 or self.position.y > 600:
             self.alive = False
         self.rect = Rect(self.position.x, self.position.y, 4, 4)
-
+    
     def draw(self, surface):
         pos = (int(self.position.x), int(self.position.y))
         pygame.draw.circle(surface, self.color, pos, 4, 0)
@@ -55,7 +52,7 @@ def enemy_fire_cannon():
 
 
 class Tank(MySprite):
-    def __init__(self, tank_file="tank.png", turret_file="turret.png"):
+    def __init__(self, tank_file="12.tank.png", turret_file="12.turret.png"):
         MySprite.__init__(self)
         self.load(tank_file, 50, 60, 4)
         self.speed = 0.0
@@ -115,7 +112,7 @@ class Tank(MySprite):
 
 
 class EnemyTank(Tank):
-    def __init__(self, tank_file="enemy_tank.png", turret_file="enemy_turret.png"):
+    def __init__(self, tank_file="12.enemy_tank.png", turret_file="12.enemy_turret.png"):
         Tank.__init__(self, tank_file, turret_file)
 
     def update(self, ticks):
@@ -141,7 +138,7 @@ def game_init():
 
     # load mouse cursor
     crosshair = MySprite()
-    crosshair.load("crosshair.png")
+    crosshair.load("12.crosshair.png")
     crosshair_group = pygame.sprite.GroupSingle()
     crosshair_group.add(crosshair)
 
@@ -167,8 +164,8 @@ def audio_init():
     pygame.mixer.init()
 
     # load sound files
-    shoot_sound = pygame.mixer.Sound("shoot.wav")
-    boom_sound = pygame.mixer.Sound("boom.wav")
+    shoot_sound = pygame.mixer.Sound("12.shoot.wav")
+    boom_sound = pygame.mixer.Sound("12.boom.wav")
 
 
 # this function uses any available channel to play a sound clip
@@ -253,7 +250,7 @@ while True:
 
         # update bullets
         for bullet in bullets:
-            bullet.update(ticks)
+            bullet.update()
             if bullet.owner == "player":
                 if pygame.sprite.collide_rect(bullet, enemy_tank):
                     player_score += 1

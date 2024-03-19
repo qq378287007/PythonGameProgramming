@@ -1,6 +1,3 @@
-# Artillery Gunner Game
-# Chapter 12
-
 import sys
 import random
 
@@ -26,7 +23,7 @@ class Terrain():
                 self.height_map.pop()
 
         # first point
-        last_x = 0
+        #last_x = 0
         last_height = (self.max_height + self.min_height) / 2
         self.height_map.append(last_height)
         direction = 1
@@ -95,8 +92,8 @@ def audio_init():
     pygame.mixer.init()
 
     # load sound files
-    shoot_sound = pygame.mixer.Sound("shoot.wav")
-    boom_sound = pygame.mixer.Sound("boom.wav")
+    shoot_sound = pygame.mixer.Sound("13.shoot.wav")
+    boom_sound = pygame.mixer.Sound("13.boom.wav")
 
 
 # this function uses any available channel to play a sound clip
@@ -120,8 +117,7 @@ def draw_player_cannon(surface, position):
     body_color = (30, 220, 30)
     rect = Rect(position.x, position.y+15, 30, 15)
     pygame.draw.rect(surface, body_color, rect, 0)
-    pygame.draw.circle(surface, body_color,
-                       (position.x+15, position.y+15), 15, 0)
+    pygame.draw.circle(surface, body_color, (position.x+15, position.y+15), 15, 0)
 
 
 def draw_computer_cannon(surface, position):
@@ -137,8 +133,7 @@ def draw_computer_cannon(surface, position):
     body_color = (220, 30, 30)
     rect = Rect(position.x, position.y+15, 30, 15)
     pygame.draw.rect(surface, body_color, rect, 0)
-    pygame.draw.circle(surface, body_color,
-                       (position.x+15, position.y+15), 15, 0)
+    pygame.draw.circle(surface, body_color, (position.x+15, position.y+15), 15, 0)
 
 
 # main program begins

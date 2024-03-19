@@ -1,5 +1,4 @@
 # example code for list
-
 ages = [16, 91, 29, 38, 14, 22]
 print(ages)
 print(ages[1])

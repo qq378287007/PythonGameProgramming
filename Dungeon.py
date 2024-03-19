@@ -13,7 +13,7 @@ class Dungeon():
     def __init__(self, offsetx, offsety):
         # create the font sprite
         self.text = MySprite()
-        self.text.load("ascii8x12.png", 8, 12, 32)
+        self.text.load("14.ascii8x12.png", 8, 12, 32)
 
         # create the level list
         self.tiles = list()

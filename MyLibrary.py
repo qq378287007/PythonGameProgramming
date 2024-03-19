@@ -1,10 +1,15 @@
-# MyLibrary.py
-
-
 import math
 
 import pygame
 from pygame.locals import *
+
+
+# calculates distance between two points
+def distance(point1, point2):
+    delta_x = point1.x - point2.x
+    delta_y = point1.y - point2.y
+    dist = math.sqrt(delta_x*delta_x + delta_y*delta_y)
+    return dist
 
 
 # calculates velocity of an angle
@@ -27,17 +32,20 @@ def target_angle(x1, y1, x2, y2):
 def wrap_angle(angle):
     return abs(angle % 360)
 
+
 # prints text using the supplied font
 def print_text(font, x, y, text, color=(255, 255, 255)):
     imgText = font.render(text, True, color)
+    # req'd when function moved into MyLibrary
     screen = pygame.display.get_surface()
     screen.blit(imgText, (x, y))
+
 
 # MySprite class extends pygame.sprite.Sprite
 class MySprite(pygame.sprite.Sprite):
 
     def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
+        pygame.sprite.Sprite.__init__(self)  # extend the base Sprite class
         self.master_image = None
         self.frame = 0
         self.old_frame = -1
@@ -83,6 +91,11 @@ class MySprite(pygame.sprite.Sprite):
             self.last_frame = (rect.width//width) * (rect.height//height) - 1
         self.rect = Rect(0, 0, self.frame_width, self.frame_height)
         self.columns = columns
+        
+        frame_x = (self.frame % self.columns) * self.frame_width
+        frame_y = (self.frame // self.columns) * self.frame_height
+        rect = Rect(frame_x, frame_y, self.frame_width, self.frame_height)
+        self.image = self.master_image.subsurface(rect)
 
     def update(self, current_time, rate=30):
         if self.last_frame > self.first_frame:
@@ -96,22 +109,23 @@ class MySprite(pygame.sprite.Sprite):
             self.frame = self.first_frame
 
         # build current frame only if it changed
-        frame_x = (self.frame % self.columns) * self.frame_width
-        frame_y = (self.frame // self.columns) * self.frame_height
-        rect = Rect(frame_x, frame_y, self.frame_width, self.frame_height)
-        self.image = self.master_image.subsurface(rect)
-        self.old_frame = self.frame
+        if self.frame != self.old_frame:
+            frame_x = (self.frame % self.columns) * self.frame_width
+            frame_y = (self.frame // self.columns) * self.frame_height
+            rect = Rect(frame_x, frame_y, self.frame_width, self.frame_height)
+            self.image = self.master_image.subsurface(rect)
+            self.old_frame = self.frame
 
     # this is only used when bypassing Group
-
     def draw(self, surface):
         surface.blit(self.image, (self.X, self.Y))
-
+        
     def __str__(self):
         return str(self.frame) + "," + str(self.first_frame) + \
             "," + str(self.last_frame) + "," + str(self.frame_width) + \
             "," + str(self.frame_height) + "," + str(self.columns) + \
             "," + str(self.rect)
+
 
 # Point class
 class Point(object):
@@ -130,5 +144,5 @@ class Point(object):
     y = property(gety, sety)
 
     def __str__(self):
-        return "{X:" + "{:.0f}".format(self.__x, 2) + \
+        return "{X:" + "{:.0f}".format(self.__x) + \
             ",Y:" + "{:.0f}".format(self.__y) + "}"

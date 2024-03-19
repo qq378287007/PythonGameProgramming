@@ -1,6 +1,3 @@
-# Snake Game
-# Chapter 11
-
 import sys
 import random
 
@@ -147,8 +144,7 @@ def game_init():
     timer = pygame.time.Clock()
 
     # create a drawing surface
-    backbuffer = pygame.Surface(
-        (screen.get_rect().width, screen.get_rect().height))
+    backbuffer = pygame.Surface((screen.get_rect().width, screen.get_rect().height))
 
     # create snake
     snake = Snake()
@@ -205,8 +201,7 @@ while True:
         food_group.update(ticks)
 
         # try to pick up food
-        hit_list = pygame.sprite.groupcollide(snake.segments,
-                                              food_group, False, True)
+        hit_list = pygame.sprite.groupcollide(snake.segments, food_group, False, True)
         if len(hit_list) > 0:
             food_group.add(Food())
             snake.add_segment()

@@ -1,6 +1,3 @@
-# Block Breaker Game
-# Chapter 9
-
 import sys
 
 import pygame
@@ -63,7 +60,7 @@ def update_blocks():
 def load_level():
     global level, block, block_image, block_group, levels
 
-    block_image = pygame.image.load("blocks.png").convert_alpha()
+    block_image = pygame.image.load("09.blocks.png").convert_alpha()
 
     block_group.empty()  # reset block group
 
@@ -105,13 +102,13 @@ def game_init():
 
     # create the paddle sprite
     paddle = MySprite()
-    paddle.load("paddle.png")
+    paddle.load("09.paddle.png")
     paddle.position = 400, 540
     paddle_group.add(paddle)
 
     # create ball sprite
     ball = MySprite()
-    ball.load("ball.png")
+    ball.load("09.ball.png")
     ball.position = 400, 300
     ball_group.add(ball)
 
@@ -179,9 +176,9 @@ def collision_ball_paddle():
     if pygame.sprite.collide_rect(ball, paddle):
         ball.velocity.y = -abs(ball.velocity.y)
         bx = ball.X + 8
-        by = ball.Y + 8
+        #by = ball.Y + 8
         px = paddle.X + paddle.frame_width/2
-        py = paddle.Y + paddle.frame_height/2
+        #py = paddle.Y + paddle.frame_height/2
         if bx < px:  # left side of paddle?
             ball.velocity.x = -abs(ball.velocity.x)
         else:  # right side of paddle?

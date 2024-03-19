@@ -1,6 +1,3 @@
-# ASCII Table Printer
-# Chapter 14
-
 cols = 8
 rows = 256//cols
 table = list("" for n in range(rows+1))

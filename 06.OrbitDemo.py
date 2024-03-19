@@ -1,6 +1,3 @@
-# Orbit Demo
-# Chapter 5
-
 import sys
 import math
 
@@ -48,10 +45,10 @@ screen = pygame.display.set_mode((800, 600))
 font = pygame.font.Font(None, 18)
 
 # load bitmaps
-space = pygame.image.load("space.png").convert_alpha()
-planet = pygame.image.load("planet2.png").convert_alpha()
-ship = pygame.image.load("freelance.png").convert_alpha()
-#ship = pygame.image.load("military.png").convert_alpha()
+space = pygame.image.load("06.space.png").convert_alpha()
+planet = pygame.image.load("06.planet2.png").convert_alpha()
+ship = pygame.image.load("06.freelance.png").convert_alpha()
+#ship = pygame.image.load("06.military.png").convert_alpha()
 width, height = ship.get_size()
 ship = pygame.transform.smoothscale(ship, (width//2, height//2))
 

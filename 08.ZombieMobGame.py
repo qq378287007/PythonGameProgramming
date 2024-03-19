@@ -1,6 +1,3 @@
-# Zombie Mob Game
-# Chapter 8
-
 import sys
 import random
 import pygame
@@ -47,23 +44,22 @@ health_group = pygame.sprite.Group()
 
 # create the player sprite
 player = MySprite()
-player.load("farmer walk.png", 96, 96, 8)
+player.load("08.farmer walk.png", 96, 96, 8)
 player.position = 80, 80
 player.direction = 4
 player_group.add(player)
 
 # create the zombie sprite
-zombie_image = pygame.image.load("zombie walk.png").convert_alpha()
 for n in range(0, 10):
     zombie = MySprite()
-    zombie.load("zombie walk.png", 96, 96, 8)
+    zombie.load("08.zombie walk.png", 96, 96, 8)
     zombie.position = random.randint(0, 700), random.randint(0, 500)
     zombie.direction = random.randint(0, 3) * 2
     zombie_group.add(zombie)
 
 # create heath sprite
 health = MySprite()
-health.load("health.png", 32, 32, 1)
+health.load("08.health.png", 32, 32, 1)
 health.position = 400, 300
 health_group.add(health)
 
@@ -149,7 +145,6 @@ while True:
                 reverse_direction(z)
 
         # check for collision with zombies
-        attacker = None
         attacker = pygame.sprite.spritecollideany(player, zombie_group)
         if attacker != None:
             # we got a hit, now do a more precise check

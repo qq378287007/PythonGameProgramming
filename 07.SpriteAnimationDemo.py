@@ -1,16 +1,12 @@
-# Sprite Animation Demo
-# Chapter 7
-
 import sys
 
 import pygame
 from pygame.locals import *
 
-
 class MySprite(pygame.sprite.Sprite):
     def __init__(self, target):
         pygame.sprite.Sprite.__init__(self)  # extend the base Sprite class
-        self.target_surface = target
+        self.target_surface = target #屏幕
         self.image = None
         self.master_image = None
         self.rect = None
@@ -34,7 +30,7 @@ class MySprite(pygame.sprite.Sprite):
         rect = self.master_image.get_rect()
         self.last_frame = (rect.width // width) * (rect.height // height) - 1
 
-    def update(self, current_time, rate=30):
+    def update(self, current_time, rate=30):#更新帧速率
         # update animation frame number
         if current_time > self.last_time + rate:
             self.frame += 1
@@ -56,7 +52,6 @@ class MySprite(pygame.sprite.Sprite):
             "," + str(self.frame_height) + "," + str(self.columns)
 
 
-# print_text function
 def print_text(font, x, y, text, color=(255, 255, 255)):
     imgText = font.render(text, True, color)
     screen.blit(imgText, (x, y))
@@ -72,13 +67,13 @@ framerate = pygame.time.Clock()
 
 # create the sprite
 dragon = MySprite(screen)
-dragon.load("dragon.png", 260, 150, 3)
+dragon.load("07.dragon.png", 260, 150, 3)
 group = pygame.sprite.Group()
 group.add(dragon)
 
 # main loop
 while True:
-    framerate.tick(30)
+    framerate.tick(30) #循环帧速率
     ticks = pygame.time.get_ticks()
 
     for event in pygame.event.get():
@@ -90,7 +85,7 @@ while True:
 
     screen.fill((0, 0, 100))
 
-    group.update(ticks)
+    group.update(ticks)#传递时间进去
     group.draw(screen)
 
     print_text(font, 0, 0, "Sprite: " + str(dragon))

@@ -1,6 +1,3 @@
-# Escape The Dragon Game
-# Chapter 7
-
 import sys
 import random
 
@@ -9,7 +6,7 @@ from pygame.locals import *
 
 
 class MySprite(pygame.sprite.Sprite):
-    def __init__(self, target):
+    def __init__(self):
         pygame.sprite.Sprite.__init__(self)  # extend the base Sprite class
         self.master_image = None
         self.frame = 0
@@ -88,28 +85,28 @@ font = pygame.font.Font(None, 18)
 framerate = pygame.time.Clock()
 
 # load bitmaps
-bg = pygame.image.load("background.png").convert_alpha()
+bg = pygame.image.load("07.background.png").convert_alpha()
 
 # create a sprite group
 group = pygame.sprite.Group()
 
 # create the dragon sprite
-dragon = MySprite(screen)
-dragon.load("dragon.png", 260, 150, 3)
+dragon = MySprite()
+dragon.load("07.dragon.png", 260, 150, 3)
 dragon.position = 100, 230
 group.add(dragon)
 
 # create the player sprite
-player = MySprite(screen)
-player.load("caveman.png", 50, 64, 8)
+player = MySprite()
+player.load("07.caveman.png", 50, 64, 8)
 player.first_frame = 1
 player.last_frame = 7
 player.position = 400, 303
 group.add(player)
 
 # create the arrow sprite
-arrow = MySprite(screen)
-arrow.load("flame.png", 40, 16, 1)
+arrow = MySprite()
+arrow.load("07.flame.png", 40, 16, 1)
 arrow.position = 800, 320
 group.add(arrow)
 

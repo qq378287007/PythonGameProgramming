@@ -1,6 +1,3 @@
-# Analog Clock Demo
-# Chapter 5
-
 import sys
 import math
 

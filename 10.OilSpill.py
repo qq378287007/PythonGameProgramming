@@ -1,6 +1,3 @@
-# Oil Spill Game
-# Chapter 10
-
 import sys
 import random
 
@@ -70,8 +67,8 @@ def audio_init():
     pygame.mixer.init()  # not always called by pygame.init()
 
     # load sound files
-    new_oil = pygame.mixer.Sound("new_oil.wav")
-    clean_oil = pygame.mixer.Sound("clean_oil.wav")
+    new_oil = pygame.mixer.Sound("10.new_oil.wav")
+    clean_oil = pygame.mixer.Sound("10.clean_oil.wav")
 
 
 def play_sound(sound):

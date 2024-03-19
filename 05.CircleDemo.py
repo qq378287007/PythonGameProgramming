@@ -1,6 +1,3 @@
-# Circle Demo
-# Chapter 5
-
 import random
 import math
 import sys
